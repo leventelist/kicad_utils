@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 #edit these
 PCB_FILE=$1
@@ -16,6 +16,9 @@ if [ ! -e $PCB_FILE ]; then
 	echo "File $PCB_FILE does not exist."
 	exit 1
 fi
+
+#Halt on any error
+set -e
 
 #Output directory
 PCBOUTDIR=release_plot
@@ -55,5 +58,7 @@ rar a ${OUTFILEBASE}.rar ${PCBOUTDIR}
 zip -r ${OUTFILEBASE}.zip ${PCBOUTDIR}
 
 #profit
-$GERBV ${PCBOUTDIR}/* &
-$EVINCE ${PCBOUTDIR}/*.pdf &
+"${GERBV}" "${PCBOUTDIR}"/*.{gbl,gbp,gm1,gts,gto,drl,gbs,gbo,gtl,gtp} >/dev/null 2>&1 &
+${EVINCE} ${PCBOUTDIR}/*.pdf >/dev/null 2>&1 &
+
+exit 0

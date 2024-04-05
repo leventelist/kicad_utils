@@ -15,7 +15,7 @@ By default, it uses the old gerbv program from gEDA, but this can be changed.
 
 ## Prerequisites
 
-zip, tar, bzip2, tar, git
+zip, tar, bzip2, git, evince, gerbv, bash
 
 ## Usage
 
