@@ -43,7 +43,7 @@ rm -rf $PCBOUTDIR/*
 rm -f *.tar.bz2 *.rar *.zip
 
 #do the output
-echo "Creating output...\n\n"
+echo -e "\n\nCreating output...\n"
 
 kicad-cli pcb export gerbers -o ${PCBOUTDIR}/ -l ${LAYERS} --ev --subtract-soldermask --use-drill-file-origin ${PCB_FILE}
 kicad-cli pcb export drill --excellon-separate-th --drill-origin plot --generate-map -o ${PCBOUTDIR}/ ${PCB_FILE}
@@ -51,14 +51,16 @@ kicad-cli pcb export pos --units mm --use-drill-file-origin -o ${PCBOUTDIR}/xy.c
 
 
 #pack
-echo "Creating archive...\n\n"
+echo -e "\n\nCreating archive...\n"
 
 tar -jcvf ${OUTFILEBASE}.tar.bz2 ${PCBOUTDIR}
 rar a ${OUTFILEBASE}.rar ${PCBOUTDIR}
 zip -r ${OUTFILEBASE}.zip ${PCBOUTDIR}
 
 #profit
-"${GERBV}" "${PCBOUTDIR}"/*.{gbl,gbp,gm1,gts,gto,drl,gbs,gbo,gtl,gtp} >/dev/null 2>&1 &
+echo -e "\n\nShowing results...\n"
+
+${GERBV} "${PCBOUTDIR}"/*.{g??,drl} >/dev/null 2>&1 &
 ${EVINCE} ${PCBOUTDIR}/*.pdf >/dev/null 2>&1 &
 
 exit 0
