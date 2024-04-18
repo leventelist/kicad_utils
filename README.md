@@ -21,3 +21,15 @@ zip, tar, bzip2, git, evince, gerbv, bash
 
 kicad_release.sh your_kicad_pcb_file.kicad_pcb
 
+# build_kicad.sh
+
+This is a small script that configures KiCad source, and compiles it. It sets the -j parameter of make to the number of online processor count. It also sets the nice value to the lowest priority to the lowest.
+
+It creates a build directory, and all artifacts are stored there.
+
+## Usage
+
+* Check out the sources of KiCad
+* Get all the required prerequisites
+* cd to the sources directory
+* Run the build script
