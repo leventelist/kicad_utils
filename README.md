@@ -33,3 +33,4 @@ It creates a build directory, and all artifacts are stored there.
 * Get all the required prerequisites
 * cd to the sources directory
 * Run the build script
+* cd to the build directory, and issue 'sudo make install'
