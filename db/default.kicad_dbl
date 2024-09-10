@@ -1,0 +1,61 @@
+{
+    "meta": {
+        "version": 0
+    },
+    "name": "My Database Library",
+    "description": "A database of components",
+    "source": {
+        "type": "odbc",
+        "dsn": "",
+        "username": "",
+        "password": "",
+        "timeout_seconds": 2,
+        "connection_string": "Driver=SQLite3;Database=/home/lev/git/library/electronic/db/db.sqlite"
+    },
+    "libraries": [
+        {
+            "name": "levcsi_database",
+            "table": "k7_components",
+            "key": "id",
+            "symbols": "symbol",
+            "footprints": "footprint",
+            "fields": [
+                {
+                    "column": "value",
+                    "name": "Value",
+                    "visible_on_add": true,
+                    "visible_in_chooser": true,
+                    "show_name": false
+                },
+                {
+                    "column": "value2",
+                    "name": "Value2",
+                    "visible_on_add": false,
+                    "visible_in_chooser": true,
+                    "show_name": false
+                },
+                {
+                    "column": "value3",
+                    "name": "Value3",
+                    "visible_on_add": false,
+                    "visible_in_chooser": true,
+                    "show_name": false
+                },
+                {
+                    "column": "id",
+                    "name": "id",
+                    "visible_on_add": false,
+                    "visible_in_chooser": true,
+                    "show_name": false
+                }
+            ],
+            "properties": {
+                "description": "Description",
+                "footprint_filters": "Footprint Filters",
+                "keywords": "Keywords",
+                "exclude_from_bom": "No BOM",
+                "exclude_from_board": "Schematic Only"
+            }
+        }
+    ]
+}
