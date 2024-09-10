@@ -34,3 +34,19 @@ It creates a build directory, and all artifacts are stored there.
 * cd to the sources directory
 * Run the build script
 * cd to the build directory, and issue 'sudo make install'
+
+# bomer2.py
+
+This is a python script that creates nice BOMs from a schematic using a database backend.
+
+It generates a CSV file that can be further processed.
+
+Run the script like this:
+
+bomer2.py -d <path/to/sqlite/database/file> -o <output_file_name.csv> <path/to/top/level/kicad_sch/file>
+
+## Database descriptor
+
+You can find a sample database in the db directory. There's also a kicad_dbl file provided. You might change the 'levcsi_database' name to something more sensible.
+
+If you place a component with the choser, KiCad will automatically add id=xxx field. The bomer2.py script uses this to reference the component.
