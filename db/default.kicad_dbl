@@ -15,7 +15,7 @@
     "libraries": [
         {
             "name": "levcsi_database",
-            "table": "k7_components",
+            "table": "k10_components",
             "key": "id",
             "symbols": "symbol",
             "footprints": "footprint",
